@@ -1,5 +1,5 @@
-# find-twitter-accounts
-Finds twitter accounts and classifies them using a BERT model
+# Find Twitter Accounts
+Scrapes Twitter accounts and classifies their profiles using a BERT model
 
 ## Installation
 
