@@ -1,5 +1,4 @@
 from snscrape.modules.twitter import TwitterHashtagScraper
-from classifier import Classifier
 
 
 class Profile:
@@ -34,8 +33,3 @@ class Twitter:
         tweets = [next(generator) for _ in range(num_tweets)]
 
         return self.profiles_from_tweets(tweets)
-
-
-if __name__ == '__main__':
-    t = Twitter()
-    print(t.profiles_from_hashtag('twitter', 5))

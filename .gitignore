@@ -129,5 +129,5 @@ dmypy.json
 .pyre/
 
 # data and models
-out.json
-classifier.pkl
+*.json
+*.pkl

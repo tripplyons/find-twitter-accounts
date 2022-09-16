@@ -1,5 +1,11 @@
 # Find Twitter Accounts
-Scrapes Twitter accounts and classifies their profiles using a BERT model
+Find and classify Twitter accounts using a BERT model
+
+## Use cases
+
+- Finding bot accounts
+- Finding accounts of new cryptocurrency projects
+- Finding any other kind of account you can make a dataset for
 
 ## Installation
 
@@ -10,22 +16,41 @@ conda activate twitter
 
 ## Usage
 
-Labeling data (saves model in `out.json`):
+### Labeling data
+
+This will create or add to a dataset stored in `out.json`.
 
 ```bash
 python labeling.py <hastag to find tweets> <number of tweets to label users>
 ```
 
-Training the linear model on BERT embeddings (from `out.json` and saves model to `classifier.pkl`):
+### Training a classifier
+
+This will train a linear classifier on BERT embeddings.
+
+It will use the dataset defined in `out.json` and save a model to `classifier.pkl`:
 
 ```bash
 python classifier.py
 ```
 
-Finding accounts that are likely to be of a predicted label:
+### Finding accounts
+
+This will find embeddings of scraped accounts and use the classifier to classify them.
+
+It will output links to any accounts with a specified label.
 
 ```bash
 python main.py <hashtag to find tweets> <number of tweets to find users> <label to search for>
+```
+
+## Details
+
+### Input format for BERT model
+
+```
+Display Name (@username):
+Profile description.
 ```
 
 ## Credits
