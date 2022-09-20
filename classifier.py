@@ -4,6 +4,9 @@ from sklearn.linear_model import LogisticRegression
 import numpy as np
 
 
+HUGGINGFACE_ID = 'xlnet-large-cased'
+
+
 def cosine_similarity(a, b):
     return torch.dot(a, b) / (torch.norm(a) * torch.norm(b))
 
@@ -12,10 +15,9 @@ class Classifier:
     def __init__(self):
         self.device = torch.device(
             'cuda' if torch.cuda.is_available() else 'cpu')
-        self.tokenizer = AutoTokenizer.from_pretrained(
-            'microsoft/xtremedistil-l6-h256-uncased')
+        self.tokenizer = AutoTokenizer.from_pretrained(HUGGINGFACE_ID)
         self.encoder = AutoModel.from_pretrained(
-            'microsoft/xtremedistil-l6-h256-uncased').to(self.device)
+            HUGGINGFACE_ID).to(self.device)
         self.classifier = None
 
     def get_embedding(self, text):
@@ -37,7 +39,7 @@ class Classifier:
         train_y = np.array(train_y)
 
         self.classifier = LogisticRegression(
-            max_iter=1000, multi_class='multinomial').fit(train_X, train_y)
+            max_iter=2000, multi_class='multinomial').fit(train_X, train_y)
 
     def predict(self, text):
         embedding = self.get_embedding(text)

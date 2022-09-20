@@ -1,5 +1,5 @@
 # Find Twitter Accounts
-Find and classify Twitter accounts using a BERT model
+Find and classify Twitter accounts using XLNet
 
 ## Use cases
 
@@ -26,7 +26,7 @@ python labeling.py <hastag to find tweets> <number of tweets to label users>
 
 ### Training a classifier
 
-This will train a linear classifier on BERT embeddings.
+This will train a linear classifier on output embeddings.
 
 It will use the dataset defined in `out.json` and save a model to `classifier.pkl`:
 
@@ -46,7 +46,7 @@ python main.py <hashtag to find tweets> <number of tweets to find users> <label 
 
 ## Details
 
-### Input format for BERT model
+### Input format for the model
 
 ```
 Display Name (@username):
@@ -55,5 +55,5 @@ Profile description.
 
 ## Credits
 
-- https://huggingface.co/microsoft/xtremedistil-l6-h256-uncased
+- https://huggingface.co/xlnet-large-cased
 - https://github.com/JustAnotherArchivist/snscrape
