@@ -1,14 +1,11 @@
+from turtle import pen
 from transformers import AutoTokenizer, AutoModel
 import torch
 from sklearn.linear_model import LogisticRegression
 import numpy as np
 
 
-HUGGINGFACE_ID = 'xlnet-large-cased'
-
-
-def cosine_similarity(a, b):
-    return torch.dot(a, b) / (torch.norm(a) * torch.norm(b))
+HUGGINGFACE_ID = 'sentence-transformers/all-mpnet-base-v2'
 
 
 class Classifier:
@@ -39,7 +36,12 @@ class Classifier:
         train_y = np.array(train_y)
 
         self.classifier = LogisticRegression(
-            max_iter=2000, multi_class='multinomial').fit(train_X, train_y)
+            max_iter=2000,
+            penalty='l2',
+            solver='lbfgs',
+            multi_class='multinomial'
+        )
+        self.classifier.fit(train_X, train_y)
 
     def predict(self, text):
         embedding = self.get_embedding(text)

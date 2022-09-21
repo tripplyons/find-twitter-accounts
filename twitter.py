@@ -1,4 +1,4 @@
-from snscrape.modules.twitter import TwitterHashtagScraper
+from snscrape.modules.twitter import TwitterHashtagScraper, TwitterSearchScraper
 
 
 class Profile:
@@ -30,6 +30,14 @@ class Twitter:
         hashtag_scraper = TwitterHashtagScraper(hashtag)
 
         generator = hashtag_scraper.get_items()
+        tweets = [next(generator) for _ in range(num_tweets)]
+
+        return self.profiles_from_tweets(tweets)
+
+    def profiles_from_search(self, search, num_tweets):
+        search_scraper = TwitterSearchScraper(search)
+
+        generator = search_scraper.get_items()
         tweets = [next(generator) for _ in range(num_tweets)]
 
         return self.profiles_from_tweets(tweets)

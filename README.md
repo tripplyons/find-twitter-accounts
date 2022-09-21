@@ -1,10 +1,10 @@
 # Find Twitter Accounts
-Find and classify Twitter accounts using XLNet
+Find and classify Twitter accounts using a machine learning model
 
 ## Use cases
 
 - Finding bot accounts
-- Finding accounts of new cryptocurrency projects
+- Finding accounts of cryptocurrency projects
 - Finding any other kind of account you can make a dataset for
 
 ## Installation
@@ -26,7 +26,7 @@ python labeling.py <hastag to find tweets> <number of tweets to label users>
 
 ### Training a classifier
 
-This will train a linear classifier on output embeddings.
+This will train a linear classifier on transformer output embeddings.
 
 It will use the dataset defined in `out.json` and save a model to `classifier.pkl`:
 
@@ -55,5 +55,5 @@ Profile description.
 
 ## Credits
 
-- https://huggingface.co/xlnet-large-cased
-- https://github.com/JustAnotherArchivist/snscrape
+- https://huggingface.co/sentence-transformers/all-mpnet-base-v2 (Model Used)
+- https://github.com/JustAnotherArchivist/snscrape (Twitter Scraper)

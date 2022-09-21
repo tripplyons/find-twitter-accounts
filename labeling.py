@@ -12,9 +12,9 @@ if __name__ == '__main__':
         with open('out.json', 'r') as f:
             dataset = json.load(f)
 
-    hashtag = sys.argv[1]
+    query = sys.argv[1]
     num_tweets = int(sys.argv[2])
-    profiles = t.profiles_from_hashtag(hashtag, num_tweets)
+    profiles = t.profiles_from_search(query, num_tweets)
 
     for profile in profiles:
         text = str(profile)
