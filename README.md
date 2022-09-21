@@ -4,7 +4,7 @@ Find and classify Twitter accounts using a machine learning model
 ## Use cases
 
 - Finding bot accounts
-- Finding accounts of cryptocurrency projects
+- Finding accounts of cryptocurrency projects ([example output and dataset](https://gist.github.com/tripplyons/eb5977dcf788ca408f4fe542daeb914e))
 - Finding any other kind of account you can make a dataset for
 
 ## Installation
