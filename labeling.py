@@ -8,8 +8,8 @@ if __name__ == '__main__':
     t = Twitter()\
 
     dataset = {}
-    if os.path.exists('out.json'):
-        with open('out.json', 'r') as f:
+    if os.path.exists('dataset.json'):
+        with open('dataset.json', 'r') as f:
             dataset = json.load(f)
 
     query = sys.argv[1]
@@ -28,5 +28,5 @@ if __name__ == '__main__':
                 char = getch.getche()
             dataset[text] = int(char)
 
-    with open('out.json', 'w') as f:
+    with open('dataset.json', 'w') as f:
         json.dump(dataset, f, indent=4)

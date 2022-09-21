@@ -18,7 +18,7 @@ conda activate twitter
 
 ### Labeling data
 
-This will create or add to a dataset stored in `out.json`.
+This will create or add to a dataset stored in `dataset.json`.
 
 ```bash
 python labeling.py <hastag to find tweets> <number of tweets to label users>
@@ -28,7 +28,7 @@ python labeling.py <hastag to find tweets> <number of tweets to label users>
 
 This will train a linear classifier on transformer output embeddings.
 
-It will use the dataset defined in `out.json` and save a model to `classifier.pkl`:
+It will use the dataset defined in `dataset.json` and save a model to `classifier.pkl`:
 
 ```bash
 python classifier.py

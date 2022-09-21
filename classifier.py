@@ -52,7 +52,7 @@ if __name__ == '__main__':
     import json
 
     classifier = Classifier()
-    with open('out.json', 'r') as f:
+    with open('dataset.json', 'r') as f:
         dataset = json.load(f)
 
     import pickle
