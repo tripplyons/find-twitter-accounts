@@ -1,4 +1,3 @@
-from turtle import pen
 from transformers import AutoTokenizer, AutoModel
 import torch
 from sklearn.linear_model import LogisticRegression
