@@ -1,6 +1,6 @@
 from transformers import AutoTokenizer, AutoModel
 import torch
-from sklearn.linear_model import LogisticRegression
+from sklearn.neural_network import MLPClassifier
 import numpy as np
 
 
@@ -34,11 +34,9 @@ class Classifier:
         train_X = np.array(train_X)
         train_y = np.array(train_y)
 
-        self.classifier = LogisticRegression(
+        self.classifier = MLPClassifier(
             max_iter=2000,
-            penalty='l2',
-            solver='lbfgs',
-            multi_class='multinomial'
+            hidden_layer_sizes=(2,)
         )
         self.classifier.fit(train_X, train_y)
 
