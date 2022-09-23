@@ -26,7 +26,7 @@ python labeling.py <hastag to find tweets> <number of tweets to label users>
 
 ### Training a classifier
 
-This will train a linear classifier on transformer output embeddings.
+This will train a dense classifier on transformer output embeddings.
 
 It will use the dataset defined in `dataset.json` and save a model to `classifier.pkl`:
 
