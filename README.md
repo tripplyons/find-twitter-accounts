@@ -21,7 +21,7 @@ conda activate twitter
 This will create or add to a dataset stored in `dataset.json`.
 
 ```bash
-python labeling.py <hastag to find tweets> <number of tweets to label users>
+python labeling.py <search query> <number of users to label>
 ```
 
 ### Training a classifier
@@ -41,7 +41,7 @@ This will find embeddings of scraped accounts and use the classifier to classify
 It will output links to any accounts with a specified label.
 
 ```bash
-python main.py <hashtag to find tweets> <number of tweets to find users> <label to search for>
+python main.py <search query> <number of tweets to find users> <label to search for>
 ```
 
 ## Details
