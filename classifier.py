@@ -1,6 +1,6 @@
 from transformers import AutoTokenizer, AutoModel
 import torch
-from sklearn.neural_network import MLPClassifier
+from sklearn.linear_model import LogisticRegression
 import numpy as np
 
 
@@ -34,10 +34,7 @@ class Classifier:
         train_X = np.array(train_X)
         train_y = np.array(train_y)
 
-        self.classifier = MLPClassifier(
-            max_iter=2000,
-            hidden_layer_sizes=(2,)
-        )
+        self.classifier = LogisticRegression()
         self.classifier.fit(train_X, train_y)
 
     def predict(self, text):
@@ -54,4 +51,4 @@ if __name__ == '__main__':
 
     import pickle
     classifier.train(dataset)
-    pickle.dump(classifier.classifier, open('classifier.pkl', 'wb'))
+    pickle.dump(classifier, open('classifier.pkl', 'wb'))

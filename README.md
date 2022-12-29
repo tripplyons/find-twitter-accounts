@@ -1,5 +1,5 @@
 # Find Twitter Accounts
-Find and classify Twitter accounts using a machine learning model
+Find and classify Twitter accounts using a machine learning model (MPNet)
 
 ## Use cases
 
@@ -26,7 +26,7 @@ python labeling.py <hastag to find tweets> <number of tweets to label users>
 
 ### Training a classifier
 
-This will train a dense classifier on transformer output embeddings.
+This will train a linear classifier on transformer output embeddings.
 
 It will use the dataset defined in `dataset.json` and save a model to `classifier.pkl`:
 
@@ -49,8 +49,7 @@ python main.py <hashtag to find tweets> <number of tweets to find users> <label 
 ### Input format for the model
 
 ```
-Display Name (@username):
-Profile description.
+Display Name. Username. Profile description
 ```
 
 ## Credits

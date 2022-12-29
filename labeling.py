@@ -5,7 +5,7 @@ import getch
 import os
 
 if __name__ == '__main__':
-    t = Twitter()\
+    t = Twitter()
 
     dataset = {}
     if os.path.exists('dataset.json'):
