@@ -49,7 +49,7 @@ python main.py <search query> <number of tweets to find users> <label to search 
 ### Input format for the model
 
 ```
-Display Name. Username. Profile description
+Display Name, Username, Profile description
 ```
 
 ## Credits

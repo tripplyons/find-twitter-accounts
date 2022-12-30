@@ -1,4 +1,5 @@
 from crawler import Crawler
+from classifier import Classifier
 import pickle
 import sys
 

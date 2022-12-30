@@ -8,7 +8,7 @@ class Profile:
         self.description = description
 
     def __str__(self):
-        return '%s. @%s. %s' % (self.display_name, self.username, self.description)
+        return '%s, %s, %s' % (self.display_name, self.username, self.description)
 
 
 class Twitter:
