@@ -1,26 +1,31 @@
-from transformers import AutoTokenizer, AutoModel
-import torch
 from sklearn.linear_model import LogisticRegression
 import numpy as np
+import openai
+from caching import Cache
+import dotenv
+import os
 
+dotenv.load_dotenv()
 
-HUGGINGFACE_ID = 'sentence-transformers/all-mpnet-base-v2'
+MODEL_ID = "text-embedding-ada-002"
+cache = Cache('embeddings.pkl')
+
+openai.api_key = os.getenv('OPENAI_API_KEY')
 
 
 class Classifier:
     def __init__(self):
-        self.device = torch.device(
-            'cuda' if torch.cuda.is_available() else 'cpu')
-        self.tokenizer = AutoTokenizer.from_pretrained(HUGGINGFACE_ID)
-        self.encoder = AutoModel.from_pretrained(
-            HUGGINGFACE_ID).to(self.device)
         self.classifier = None
 
     def get_embedding(self, text):
-        tokens = torch.tensor(self.tokenizer.encode(text)
-                              ).unsqueeze(0).to(self.device)
-        embeddings = self.encoder(tokens)[0]
-        return embeddings[0, 0].cpu().detach().numpy()
+        if hash(text) in cache.data:
+            return cache.data[hash(text)]
+        
+        text = text.replace("\n", " ").replace("\r", " ")
+        embedding = openai.Embedding.create(input=[text], model=MODEL_ID)['data'][0]['embedding']
+        cache.data[hash(text)] = embedding
+
+        return embedding
 
     def train(self, dataset):
         train_X = []
@@ -52,3 +57,5 @@ if __name__ == '__main__':
     import pickle
     classifier.train(dataset)
     pickle.dump(classifier, open('classifier.pkl', 'wb'))
+
+    cache.save()

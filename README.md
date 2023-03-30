@@ -1,5 +1,6 @@
 # Find Twitter Accounts
-Find and classify Twitter accounts using a machine learning model (MPNet)
+
+Find and classify Twitter accounts using text embeddings
 
 ## Use cases
 
@@ -26,7 +27,7 @@ python labeling.py <search query> <number of users to label>
 
 ### Training a classifier
 
-This will train a linear classifier on transformer output embeddings.
+This will train a linear classifier on embeddings.
 
 It will use the dataset defined in `dataset.json` and save a model to `classifier.pkl`:
 
@@ -54,5 +55,5 @@ Display Name, Username, Profile description
 
 ## Credits
 
-- https://huggingface.co/sentence-transformers/all-mpnet-base-v2 (Model Used)
+- https://platform.openai.com/docs/guides/embeddings (Embeddings)
 - https://github.com/JustAnotherArchivist/snscrape (Twitter Scraper)
